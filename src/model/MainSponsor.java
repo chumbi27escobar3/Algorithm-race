@@ -52,6 +52,69 @@ public class MainSponsor {
 			n--;
 		}
 	}
+	
+	public void addArrayRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			addArrayR(base.get(i));
+		}
+	}
+	
+	public void searchArrayIAle() {
+		for (int i = 0; i < base.size(); i++) {
+			searchArrayI(base.get(i));
+		}
+	}
+	public void searchArrayRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			searchArrayR(base.get(i),0);
+		}
+	}
+	public void delectArrayIAle() {
+		for (int i = 0; i < base.size(); i++) {
+			deletArryI(base.get(i));
+		}
+	}
+	
+	public void delectArrayRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			deletArryR(base.get(i),0);
+		}
+	}
+	
+	public void addListIAle() {
+		for (int i = 0; i < base.size(); i++) {
+			addListI(base.get(i));
+		}
+	}
+
+	public void addListRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			addListAR(base.get(i));
+		}
+	}
+
+	public void searchListIAle() {
+		for (int i = 0; i < base.size(); i++) {
+			searchListI(base.get(i));
+		}
+	}
+
+	public void searchListRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			searchListAR(base.get(i));
+		}
+	}
+	public void delectListIAle() {
+		for (int i = 0; i < base.size(); i++) {
+			deletListI(base.get(i));
+		}
+	}
+	
+	public void delectListRAle() {
+		for (int i = 0; i < base.size(); i++) {
+			deletListAR(base.get(i));
+		}
+	}
 
 //	PARA TODOS:
 //		·        En la estructura de datos de ArrayList no aplica lo de aregar iterativo ni agregar recursivo, solo hagan el .add().
@@ -225,9 +288,7 @@ public class MainSponsor {
 				boolean oa = false;
 				root = root.getRight();
 				while (!oa) {
-					if (root.getLeft() == null && root.getRight() == null) {
-						
-					} else if (root.getN() < h.getN() && root.getRight() == null) {
+					if (root.getN() < h.getN() && root.getRight() == null) {
 						root.setRight(h);
 						oa = true;
 					} else if (root.getN() < h.getN() && root.getRight() != null) {
@@ -243,18 +304,15 @@ public class MainSponsor {
 				boolean oa = false;
 				root = root.getLeft();
 				while (!oa) {
-					if (root.getN() == n) {
-						oe = true;
+					if (root.getN() < h.getN() && root.getRight() == null) {
+						root.setRight(h);
 						oa = true;
-					} else if (root.getLeft() == null && root.getRight() == null) {
+					} else if (root.getN() < h.getN() && root.getRight() != null) {
+						root = root.getRight();
+					} else if (root.getN() > h.getN() && root.getLeft() == null) {
+						root.setLeft(h);
 						oa = true;
-					} else if (root.getLeft() == null && root.getRight() != null) {
-						root = root.getRight();
-					} else if (root.getRight() == null && root.getLeft() != null) {
-						root = root.getLeft();
-					} else if (root.getN() < n) {
-						root = root.getRight();
-					} else if (root.getN() > n) {
+					} else if (root.getN() > h.getN() && root.getLeft() != null) {
 						root = root.getLeft();
 					}
 				}
